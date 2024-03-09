@@ -71,8 +71,8 @@ interface Background {
   main: string;
 }
 const background: Background = {
-  default: "#F0F8FF",
-  paper: "#F3F6FF",
+  default: "#FFF5E9",
+  paper: "#F6F4F5",
   buttonBackground: "rgba(82, 102, 208, 0.05)",
   profileBackground: "#FBFBFB",
   main: "#7d7c7c54",
@@ -95,11 +95,11 @@ interface Primary {
   contrastText?: string;
 }
 const primary: Primary = {
-  main: "#329CD7", // '#FF7918'
+  main: "#FF951D", // '#FF7918'
   // light: 'rgba(255, 121, 24, 0.8)',
   light: "#EBEFFD",
 
-  dark: "#F6FCFF",
+  dark: "#333333",
 
   text: "#FFC72D",
 };
@@ -107,7 +107,7 @@ const searchBoxBg = primary.main;
 const secondary: Primary = {
   main: "#934916",
   light: "#fafaf9",
-  dark: "#a2684c",
+  dark: "#4F4F4F",
   contrastText: "#9EA5AB",
 };
 

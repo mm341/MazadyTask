@@ -1,12 +1,18 @@
-import { Box, CssBaseline, Typography } from "@mui/material";
+import PersonalLeftSection from "@/Components/GlobalComponent/HomeSections/PersonalProfileSection";
+import ProductsRightSection from "@/Components/GlobalComponent/HomeSections/ProductsRightSection";
+import { Box, CssBaseline, Grid, Typography } from "@mui/material";
 
 export default function Home() {
   return (
     <>
       <CssBaseline />
-      <Box>
-        <Typography component={"h1"}>medo</Typography>
-      </Box>
+     <Grid container spacing={3}>
+      {/* personal information left section */}
+      <PersonalLeftSection/>
+
+      {/* products section right section */}
+      <ProductsRightSection/>
+     </Grid>
     </>
   );
 }

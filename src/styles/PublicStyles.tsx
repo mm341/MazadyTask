@@ -11,6 +11,7 @@ import {
   Button,
   Rating,
   Autocomplete,
+  Theme,
 } from "@mui/material";
 
 export const HomeParentBox = styled(Box)(() => ({
@@ -26,10 +27,10 @@ export const GlobalDisplayFlexBox = styled(Box)(({ theme }) => ({
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
-    gap: "20px",
-  },
+  // [theme.breakpoints.down("md")]: {
+  //   flexDirection: "column",
+  //   gap: "20px",
+  // },
 }));
 
 export const GlobalDisplayFlexColumnBox = styled(Box)(
@@ -42,13 +43,25 @@ export const GlobalDisplayFlexColumnBox = styled(Box)(
 );
 
 export const GlobalButton = styled(Box)(
-  ({ py, px, service }: { py: string; px: string; service?: boolean }) => ({
+  ({
+    py,
+    px,
+    follow,
+    bg,
+  }: {
+    py?: string;
+    px?: string;
+    follow?: boolean;
+    bg?: string;
+  }) => ({
     cursor: "pointer",
-    display: !service ? "flex" : "none",
+    background: bg ? bg : "linear-gradient(90deg, #D20653 0%, #FF951D 100%)",
+    borderRadius: "14px",
+    color: "white",
+    height: follow ? "48px" : "40px",
     justifyContent: "center",
     alignItems: "Center",
-    py: py,
-    px: px,
+    display: "flex",
   })
 );
 
@@ -83,13 +96,13 @@ export const SideDrawerWrapper = styled(Box)(({ theme }) => ({
 }));
 
 export const CustomPaperBigCard = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  padding: "12px",
+  backgroundColor: "white",
+  padding: "24px",
   width: "100%",
   height: "100%",
 
-  borderRadius: "10px",
-  boxShadow: `0px 0px 2px rgba(145, 158, 171, 0.2), 0px 5px 20px ${paperBoxShadow}`,
+  borderRadius: "21px",
+  // boxShadow: `0px 0px 2px rgba(145, 158, 171, 0.2), 0px 5px 20px ${paperBoxShadow}`,
 }));
 
 export const ButtonBox = styled(Box)(({ theme }) => ({
@@ -270,8 +283,19 @@ export const CustomRating = styled(Rating)(({ theme, color }) => ({
 
 export const PreferableTimeInput = styled(Autocomplete)(({ theme }) => ({
   // border: '1px solid rgba(251, 222, 201)',
-  borderRadius: '10px',
-  '&.MuiAutocomplete-option': {
-      backgroundColor: theme.palette.primary.main,
+  borderRadius: "10px",
+  "&.MuiAutocomplete-option": {
+    backgroundColor: theme.palette.primary.main,
   },
-}))
+}));
+
+export const CustomGlobalTypography = styled(Typography, {
+  shouldForwardProp: (prop) => prop !== "issmall",
+})(({ theme, header }: { theme: Theme; header?: boolean }) => ({
+  fontWeight: "700",
+  fontSize: "24px",
+  color: theme.palette.primary.dark,
+  [theme.breakpoints.down("md")]: {
+    fontSize: "18px",
+  },
+}));

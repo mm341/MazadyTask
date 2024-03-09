@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "../theme/index";
-import { Box, CssBaseline } from "@mui/material";
+import { Box, Container, CssBaseline } from "@mui/material";
 
 import "../language/i18n";
 import { persistor, store } from "../redux/store";
@@ -42,8 +42,7 @@ export default function App({
 
   const { t } = useTranslation();
   const [languagedirection, setlanguagedirection] = useState<string>("");
-  const router = useRouter();
-
+  
   //  custom theme
   const theme = useMemo(
     () =>
@@ -55,47 +54,40 @@ export default function App({
   const getLayout = Component.getLayout ?? ((page: any) => page);
   const queryClient = new QueryClient();
 
-
+  const Navbar = dynamic(() => import("@/Components/Navbar"));
   return (
     <CacheProvider value={emotionCache}>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <ThemeProvider theme={theme}>
-              <RTL direction={languagedirection}>
-                <CssBaseline />
-                <Toaster
-                  toastOptions={{
-                    className: "",
-                  }}
-                  containerStyle={{
-                    zIndex: 1000000,
-                    position: "sticky",
-                  }}
-                />
-                <Head>
-                  <title>{t("Loading...")}</title>
-                </Head>
-                {/* <Navbar /> */}
+              <CssBaseline />
+              <Toaster
+                toastOptions={{
+                  className: "",
+                }}
+                containerStyle={{
+                  zIndex: 1000000,
+                  position: "sticky",
+                }}
+              />
+              <Head>
+                <title>{t("Loading...")}</title>
+              </Head>
+              <Navbar />
 
-                <Box
-                  style={{ overflowX: "hidden" }}
-                  sx={{
-                    width: "100vw",
-                    minHeight: "80vh",
-                    mt: {
-                      md: router.pathname !== "/" ? "7rem" : "3.9rem",
-                      xs: router.pathname !== "/" ? "7rem" : "5rem",
-                    },
-                    mb: "5rem",
-                  }}
-                >
-                  <ScrollToTop />
-                  {/* <DynamicFavicon /> */}
-                  {getLayout(<Component {...pageProps} />)}
-                </Box>
-                {/* <Footer /> */}
-              </RTL>
+              <Box
+                sx={{
+                  mt: "48px",
+
+                  mb: "5rem",
+                }}
+              >
+                <ScrollToTop />
+                {/* <DynamicFavicon /> */}
+                <Container>{getLayout(<Component {...pageProps} />)}</Container>
+              </Box>
+              {/* <Footer /> */}
             </ThemeProvider>
           </PersistGate>
         </Provider>

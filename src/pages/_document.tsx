@@ -42,7 +42,7 @@ class CustomDocument extends Document {
           {/*    src="https://connect.facebook.net/en_US/sdk.js"*/}
           {/*/>*/}
         </Head>
-        <body  style={{backgroundColor:"#F6F4F5"}}>
+        <body  style={{backgroundColor:"#F6F4F5",overflowX:"hidden"}}>
           <Main />
           <NextScript />
         </body>

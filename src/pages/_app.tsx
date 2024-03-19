@@ -72,7 +72,7 @@ export default function App({
                 }}
               />
               <Head>
-                <title>{t("Mazady")}</title>
+                <title>{t("Structure")}</title>
               </Head>
               <Navbar />
 

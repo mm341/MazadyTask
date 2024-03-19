@@ -15,37 +15,46 @@ const QRsection = () => {
       sx={{
         background: "linear-gradient(90deg, #D20653 0%, #FF951D 100%)",
         borderRadius: "21px",
-        py:"23px"
+        py: "23px",
       }}
     >
-        <GlobalDisplayFlexBox sx={{width:"87%",py:"32px",mx:"auto",justifyContent:"center",backgroundColor:"white",borderRadius:"21px"}}>
-      <GlobalDisplayFlexColumnBox  gap={"8px"}>
-        {/*  logo */}
-        <Image
+      <GlobalDisplayFlexBox
+        sx={{
+          width: "87%",
+          py: "32px",
+          mx: "auto",
+          justifyContent: "center",
+          backgroundColor: "white",
+          borderRadius: "21px",
+        }}
+      >
+        <GlobalDisplayFlexColumnBox gap={"8px"}>
+          {/*  logo */}
+          {/* <Image
           src={logoImg}
           alt="logo"
           width={152}
           height={48}
           loading="lazy"
-        />
-        {/*  qr code */}
-        <GlobalDisplayFlexColumnBox>
-          <CustomGlobalTypography sx={{ color: "#363333" }}>
-            Hala Ahmed
-          </CustomGlobalTypography>
-          <Image
-            src={QrImg}
-            alt="logo"
-            width={135}
-            height={135}
-            loading="lazy"
-          />
-         
-        </GlobalDisplayFlexColumnBox>
-        <Typography className="text-[14px] font-normal text-[#363333]">
+        /> */}
+          <p>logo</p>
+          {/*  qr code */}
+          <GlobalDisplayFlexColumnBox>
+            <CustomGlobalTypography sx={{ color: "#363333" }}>
+              Hala Ahmed
+            </CustomGlobalTypography>
+            <Image
+              src={QrImg}
+              alt="logo"
+              width={135}
+              height={135}
+              loading="lazy"
+            />
+          </GlobalDisplayFlexColumnBox>
+          <Typography className="text-[14px] font-normal text-[#363333]">
             Follow Us on Mazaady
           </Typography>
-      </GlobalDisplayFlexColumnBox>
+        </GlobalDisplayFlexColumnBox>
       </GlobalDisplayFlexBox>
     </Stack>
   );

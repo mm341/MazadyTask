@@ -48,13 +48,14 @@ const Navbar = () => {
                 )}
                 {/*  logo */}
 
-                <Image
+                {/* <Image
                   src={logoImg}
                   alt="logo"
                   width={108}
                   height={43}
                   loading="lazy"
-                />
+                /> */}
+                <p>logo</p>
               </GlobalDisplayFlexBox>
             </Box>
             {/* links */}
